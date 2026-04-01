@@ -33,7 +33,7 @@ export function ServicesGrid() {
             <ScrollReveal key={service.slug} delay={i * 0.08}>
               <Link
                 href={service.href}
-                className="group block overflow-hidden rounded-[20px] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300"
+                className="group flex flex-col h-full overflow-hidden rounded-[20px] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -42,6 +42,7 @@ export function ServicesGrid() {
                     alt={service.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
+                    loading={i < 2 ? "eager" : "lazy"}
                     className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   />
                   {service.startingPrice && (

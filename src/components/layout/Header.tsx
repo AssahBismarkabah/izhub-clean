@@ -35,8 +35,8 @@ export function Header() {
                 alt="IZHUB Cleaning Service"
                 width={140}
                 height={48}
-                style={{ width: "auto" }}
-                className="h-10 brightness-0 sm:h-12"
+                style={{ width: "auto", height: "auto" }}
+                className="max-h-10 brightness-0 sm:max-h-12"
                 priority
               />
             </Link>
