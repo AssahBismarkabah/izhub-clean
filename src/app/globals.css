@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-surface: #ECF1F4;
+  --color-muted: #8C8CA1;
+  --color-charcoal: #1a1a2e;
+  --color-border: #e2e2ea;
+  --color-success: #25D366;
+  --color-whatsapp: #25D366;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* IZHUB signature gradient text */
+.text-gradient {
+  background: linear-gradient(to right, #ef4444, #f97316, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
