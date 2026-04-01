@@ -12,13 +12,11 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/logo-white.png"
                 alt="IZHUB Cleaning Service"
-                width={140}
-                height={48}
-                style={{ width: "auto", height: "auto" }}
-                className="max-h-12 brightness-0"
+                className="h-12 w-auto brightness-0"
               />
             </Link>
             <p className="mt-4 text-sm leading-normal text-muted">

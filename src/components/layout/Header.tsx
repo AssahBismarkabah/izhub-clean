@@ -30,14 +30,11 @@ export function Header() {
           <div className="flex h-16 items-center justify-between lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/logo-white.png"
                 alt="IZHUB Cleaning Service"
-                width={140}
-                height={48}
-                style={{ width: "auto", height: "auto" }}
-                className="max-h-10 brightness-0 sm:max-h-12"
-                priority
+                className="h-10 w-auto brightness-0 sm:h-12"
               />
             </Link>
 
