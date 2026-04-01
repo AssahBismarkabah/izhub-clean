@@ -78,10 +78,10 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4 border-t border-border pt-10"
         >
           {[
-            { value: "100%", label: "Satisfaction rate" },
-            { value: "5★", label: "Customer rated" },
+            { value: "Local", label: "Tidworth & surrounds" },
             { value: "2hr", label: "Quote response" },
             { value: "Insured", label: "Public liability" },
+            { value: "5★", label: "Service standard" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-4xl lg:text-5xl font-normal text-charcoal">
