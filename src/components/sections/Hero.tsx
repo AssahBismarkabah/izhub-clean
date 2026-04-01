@@ -19,7 +19,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-charcoal"
+            className="text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight text-charcoal"
           >
             Professional cleaning
             <br />
@@ -33,7 +33,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-6 mx-auto max-w-xl text-lg leading-relaxed text-muted"
+            className="mt-6 mx-auto max-w-xl text-lg sm:text-xl leading-relaxed text-muted"
           >
             Domestic, commercial and military cleaning. Fully insured,
             transparent pricing, and inspection-ready results every time.
@@ -47,7 +47,7 @@ export function Hero() {
           >
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-[15px] font-medium text-white hover:bg-charcoal transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
             >
               Get a free quote
               <ArrowRight className="h-4 w-4" />
@@ -56,7 +56,7 @@ export function Hero() {
               href={CONTACT.whatsappWithMessage}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-border px-7 py-3.5 text-[15px] font-medium text-charcoal hover:bg-surface transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl border border-border px-7 py-3.5 text-base font-medium text-charcoal hover:bg-surface transition-colors"
             >
               <svg
                 className="h-5 w-5 text-whatsapp"
@@ -84,10 +84,10 @@ export function Hero() {
             { value: "Insured", label: "Public liability" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="text-3xl lg:text-4xl font-normal text-charcoal">
+              <p className="text-4xl lg:text-5xl font-normal text-charcoal">
                 {stat.value}
               </p>
-              <p className="mt-1 text-sm text-muted">{stat.label}</p>
+              <p className="mt-1 text-base text-muted">{stat.label}</p>
             </div>
           ))}
         </motion.div>

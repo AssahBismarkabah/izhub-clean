@@ -18,13 +18,15 @@ export function AddOns() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Image */}
           <ScrollReveal>
-            <Image
-              src="/cleaning-image.png"
-              alt="Professional oven cleaning"
-              width={600}
-              height={700}
-              className="rounded-[20px] object-cover w-full aspect-[4/5] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
-            />
+            <div className="group overflow-hidden rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+              <Image
+                src="/cleaning-image.png"
+                alt="Professional oven cleaning"
+                width={600}
+                height={700}
+                className="object-cover w-full aspect-[4/5] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+              />
+            </div>
           </ScrollReveal>
 
           {/* Menu-style list */}
@@ -32,11 +34,11 @@ export function AddOns() {
             <p className="text-sm font-medium text-muted tracking-wide">
               Add-on services
             </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-normal text-charcoal">
+            <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
               Enhance any clean with{" "}
               <span className="text-gradient font-medium">extras</span>
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted">
+            <p className="mt-4 text-base leading-relaxed text-muted">
               Available alongside any of our core services. Just add them when
               you request your quote.
             </p>
@@ -46,14 +48,14 @@ export function AddOns() {
               {addOns.map((item) => (
                 <div key={item.name} className="flex items-baseline justify-between gap-4 py-4">
                   <div className="min-w-0">
-                    <p className="text-[15px] font-medium text-charcoal">
+                    <p className="text-base font-medium text-charcoal">
                       {item.name}
                     </p>
-                    <p className="mt-0.5 text-sm text-muted">
+                    <p className="mt-0.5 text-base text-muted">
                       {item.description}
                     </p>
                   </div>
-                  <span className="text-sm font-medium text-charcoal whitespace-nowrap">
+                  <span className="text-base font-medium text-charcoal whitespace-nowrap">
                     {item.price}
                   </span>
                 </div>
@@ -62,7 +64,7 @@ export function AddOns() {
 
             <Link
               href="/quote"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-[15px] font-medium text-white hover:bg-charcoal transition-colors"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
             >
               Add to your quote
               <ArrowRight className="h-4 w-4" />

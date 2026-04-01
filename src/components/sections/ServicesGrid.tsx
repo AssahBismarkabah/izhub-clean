@@ -21,7 +21,7 @@ export function ServicesGrid() {
             <p className="text-sm font-medium text-muted tracking-wide">
               What we do
             </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-normal text-charcoal">
+            <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
               Cleaning services for{" "}
               <span className="text-gradient font-medium">every situation</span>
             </h2>
@@ -44,7 +44,7 @@ export function ServicesGrid() {
                     className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   />
                   {service.startingPrice && (
-                    <span className="absolute bottom-4 left-4 rounded-lg bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-charcoal shadow-sm">
+                    <span className="absolute bottom-4 left-4 rounded-lg bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-sm font-medium text-charcoal shadow-sm">
                       {service.startingPrice}
                     </span>
                   )}
@@ -52,10 +52,10 @@ export function ServicesGrid() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-[17px] font-medium text-charcoal">
+                  <h3 className="text-lg font-medium text-charcoal">
                     {service.name}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                  <p className="mt-2 text-base leading-relaxed text-muted">
                     {service.shortDescription}
                   </p>
                 </div>

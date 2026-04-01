@@ -30,17 +30,17 @@ export function HowItWorks() {
             <p className="text-sm font-medium text-muted tracking-wide">
               How it works
             </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-normal text-charcoal">
+            <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
               Simple from start{" "}
               <span className="text-gradient font-medium">to spotless</span>
             </h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
               No complicated booking process. No hidden fees. Just reliable
               cleaning in three straightforward steps.
             </p>
             <Link
               href="/quote"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-[15px] font-medium text-white hover:bg-charcoal transition-colors"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
             >
               Start now, takes 2 minutes
               <ArrowRight className="h-4 w-4" />
@@ -58,10 +58,10 @@ export function HowItWorks() {
                   <div className="relative">
                     {/* Dot on the line */}
                     <div className="absolute -left-8 lg:-left-10 top-1.5 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-red-400 via-orange-400 to-purple-400 ring-4 ring-surface" />
-                    <h3 className="text-[16px] font-medium text-charcoal">
+                    <h3 className="text-lg font-medium text-charcoal">
                       {step.title}
                     </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                    <p className="mt-1.5 text-base leading-relaxed text-muted">
                       {step.description}
                     </p>
                   </div>
