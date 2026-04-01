@@ -51,7 +51,7 @@ export function HowItWorks() {
           <div className="space-y-4">
             {steps.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.12}>
-                <div className="group rounded-2xl border border-border bg-white p-6 hover:shadow-lg hover:shadow-black/5 transition-all duration-300">
+                <div className="group rounded-2xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300">
                   <div className="flex gap-5">
                     <span className="text-2xl font-normal text-gradient shrink-0">
                       {step.number}

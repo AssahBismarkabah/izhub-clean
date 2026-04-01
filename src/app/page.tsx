@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { AddOns } from "@/components/sections/AddOns";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <ServicesGrid />
+      <AddOns />
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />

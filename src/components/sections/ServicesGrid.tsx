@@ -1,9 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
 import { services } from "@/data/services";
+
+const serviceImages: Record<string, string> = {
+  "domestic-cleaning": "/cleaning-image-d1.png",
+  "end-of-tenancy": "/cleaning-image-d2.png",
+  "commercial-cleaning": "/cleaning-image-office.png",
+  "military-cleaning": "/cleaning-image-bathroom.png",
+};
 
 export function ServicesGrid() {
   return (
@@ -21,34 +28,36 @@ export function ServicesGrid() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2">
           {services.map((service, i) => (
             <ScrollReveal key={service.slug} delay={i * 0.08}>
               <Link
                 href={service.href}
-                className="group relative flex flex-col rounded-2xl border border-border bg-white p-7 sm:p-8 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5"
+                className="group block overflow-hidden rounded-[20px] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300"
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface">
-                    <service.icon className="h-5 w-5 text-charcoal/60" />
-                  </div>
+                {/* Image */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={serviceImages[service.slug]}
+                    alt={service.name}
+                    fill
+                    className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  />
                   {service.startingPrice && (
-                    <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-charcoal">
+                    <span className="absolute bottom-4 left-4 rounded-lg bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-charcoal shadow-sm">
                       {service.startingPrice}
                     </span>
                   )}
                 </div>
 
-                <h3 className="mt-5 text-xl font-medium text-charcoal">
-                  {service.name}
-                </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">
-                  {service.description}
-                </p>
-
-                <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-charcoal group-hover:gap-2.5 transition-all">
-                  View details
-                  <ArrowRight className="h-4 w-4" />
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-[17px] font-medium text-charcoal">
+                    {service.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {service.shortDescription}
+                  </p>
                 </div>
               </Link>
             </ScrollReveal>
