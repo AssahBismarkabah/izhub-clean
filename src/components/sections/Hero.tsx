@@ -7,7 +7,7 @@ import { CONTACT } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-44 lg:pb-32">
+    <section className="relative overflow-hidden bg-surface pt-32 pb-20 lg:pt-44 lg:pb-32">
       {/* Subtle radial glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-gradient-to-br from-red-100/30 via-orange-100/20 to-purple-100/30 blur-[100px]" />
