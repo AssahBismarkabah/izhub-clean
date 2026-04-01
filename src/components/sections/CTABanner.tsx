@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
 import { CONTACT } from "@/lib/constants";
 
@@ -20,19 +20,9 @@ export function CTABanner() {
               no-obligation quote and we'll respond within 2 hours.
             </p>
 
-            {/* Trust signals inline */}
-            <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-base text-charcoal">
-              {[
-                "Fully insured",
-                "Satisfaction guaranteed",
-                "No hidden fees",
-              ].map((item) => (
-                <span key={item} className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-green-600" strokeWidth={2.5} />
-                  {item}
-                </span>
-              ))}
-            </div>
+            <p className="mt-4 text-sm text-body">
+              Fully insured &middot; No hidden fees &middot; Satisfaction guaranteed
+            </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link

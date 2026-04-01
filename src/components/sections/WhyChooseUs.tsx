@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
-
-const trustItems = [
-  "Fully insured",
-  "Transparent pricing",
-  "Reliable & punctual",
-  "Professional equipment",
-  "Extras available (oven, carpet, fridge)",
-];
 
 export function WhyChooseUs() {
   return (
@@ -17,17 +9,9 @@ export function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Trust strip */}
         <ScrollReveal>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-            {trustItems.map((item) => (
-              <span
-                key={item}
-                className="inline-flex items-center gap-2 text-base text-charcoal"
-              >
-                <Check className="h-4 w-4 text-green-600" strokeWidth={2.5} />
-                {item}
-              </span>
-            ))}
-          </div>
+          <p className="text-center text-base text-body">
+            Fully insured &middot; Transparent pricing &middot; Reliable &amp; punctual &middot; Professional equipment &middot; Extras available
+          </p>
         </ScrollReveal>
 
         {/* Military specialist callout */}
