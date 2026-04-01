@@ -2,11 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
-import { addOns } from "@/data/services";
+
+const addOns = [
+  { name: "Oven deep clean", description: "Grease, burnt-on residue, internal glass and shelves", price: "From £50" },
+  { name: "Carpet cleaning", description: "Per-room stain treatment and deodorising", price: "From £40/room" },
+  { name: "Fridge cleaning", description: "Internal shelves and compartment sanitation", price: "From £20" },
+  { name: "Freezer cleaning", description: "Full defrost and internal deep clean", price: "From £25" },
+  { name: "Fridge-freezer combo", description: "Both units, complete internal clean", price: "From £35" },
+];
 
 export function AddOns() {
   return (
-    <section className="bg-surface py-24 lg:py-32">
+    <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Image */}
@@ -20,7 +27,7 @@ export function AddOns() {
             />
           </ScrollReveal>
 
-          {/* Content */}
+          {/* Menu-style list */}
           <ScrollReveal delay={0.1}>
             <p className="text-sm font-medium text-muted tracking-wide">
               Add-on services
@@ -34,25 +41,20 @@ export function AddOns() {
               you request your quote.
             </p>
 
-            <div className="mt-8 space-y-3">
-              {addOns.map((addon) => (
-                <div
-                  key={addon.name}
-                  className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface">
-                    <addon.icon className="h-5 w-5 text-charcoal/50" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-[15px] font-medium text-charcoal">
-                      {addon.name}
-                    </h3>
-                    <p className="mt-0.5 text-sm text-muted truncate">
-                      {addon.description}
+            {/* Menu list */}
+            <div className="mt-8 divide-y divide-border">
+              {addOns.map((item) => (
+                <div key={item.name} className="flex items-baseline justify-between gap-4 py-4">
+                  <div className="min-w-0">
+                    <p className="text-[15px] font-medium text-charcoal">
+                      {item.name}
+                    </p>
+                    <p className="mt-0.5 text-sm text-muted">
+                      {item.description}
                     </p>
                   </div>
-                  <span className="text-sm font-medium text-charcoal shrink-0">
-                    {addon.price}
+                  <span className="text-sm font-medium text-charcoal whitespace-nowrap">
+                    {item.price}
                   </span>
                 </div>
               ))}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
 import { CONTACT } from "@/lib/constants";
 
@@ -14,12 +14,27 @@ export function CTABanner() {
               <span className="text-gradient font-medium">brand new?</span>
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-muted">
-              Get your free, no-obligation quote. We typically respond within
-              2 hours, often sooner.
+            <p className="mt-5 text-[15px] leading-relaxed text-muted">
+              We serve Tidworth, Bulford, Larkhill, Amesbury, Ludgershall,
+              Andover, and the wider Salisbury Plain area. Get your free,
+              no-obligation quote and we'll respond within 2 hours.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            {/* Trust signals inline */}
+            <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-charcoal">
+              {[
+                "Fully insured",
+                "Satisfaction guaranteed",
+                "No hidden fees",
+              ].map((item) => (
+                <span key={item} className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-green-600" strokeWidth={2.5} />
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/quote"
                 className="inline-flex items-center gap-2 rounded-xl bg-black px-8 py-4 text-[15px] font-medium text-white hover:bg-charcoal transition-colors"
@@ -39,6 +54,16 @@ export function CTABanner() {
                 WhatsApp us
               </a>
             </div>
+
+            <p className="mt-6 text-xs text-muted">
+              Not sure if we cover your area?{" "}
+              <Link
+                href="/contact"
+                className="font-medium text-charcoal underline underline-offset-4 decoration-border hover:decoration-charcoal transition-colors"
+              >
+                Just ask
+              </Link>
+            </p>
           </div>
         </ScrollReveal>
       </div>

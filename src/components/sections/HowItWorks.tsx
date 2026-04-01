@@ -4,19 +4,19 @@ import { ScrollReveal } from "@/components/common/ScrollReveal";
 
 const steps = [
   {
-    number: "01",
-    title: "Share your details",
-    description: "Tell us about your property, the service you need, and your preferred dates.",
+    title: "Tell us about your property.",
+    description:
+      "Share your details and preferred dates. No lengthy forms, just the essentials.",
   },
   {
-    number: "02",
-    title: "Get a clear quote",
-    description: "We respond within 2 hours with a transparent, no-obligation price.",
+    title: "Get a clear price within 2 hours.",
+    description:
+      "Transparent, no-obligation. The price you see is the price you pay.",
   },
   {
-    number: "03",
-    title: "We handle the rest",
-    description: "Our team arrives on time with professional equipment. You enjoy the results.",
+    title: "We arrive on time. You enjoy the results.",
+    description:
+      "Professional equipment, thorough approach, consistent results.",
   },
 ];
 
@@ -24,7 +24,7 @@ export function HowItWorks() {
   return (
     <section className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-16 lg:grid-cols-2">
           {/* Left */}
           <ScrollReveal>
             <p className="text-sm font-medium text-muted tracking-wide">
@@ -34,7 +34,7 @@ export function HowItWorks() {
               Simple from start{" "}
               <span className="text-gradient font-medium">to spotless</span>
             </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
               No complicated booking process. No hidden fees. Just reliable
               cleaning in three straightforward steps.
             </p>
@@ -47,27 +47,27 @@ export function HowItWorks() {
             </Link>
           </ScrollReveal>
 
-          {/* Right */}
-          <div className="space-y-4">
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.number} delay={i * 0.12}>
-                <div className="group rounded-2xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300">
-                  <div className="flex gap-5">
-                    <span className="text-2xl font-normal text-gradient shrink-0">
-                      {step.number}
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-medium text-charcoal">
-                        {step.title}
-                      </h3>
-                      <p className="mt-1.5 text-[15px] leading-relaxed text-muted">
-                        {step.description}
-                      </p>
-                    </div>
+          {/* Right: simple text timeline */}
+          <div className="relative pl-8 lg:pl-10">
+            {/* Vertical line */}
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-border" />
+
+            <div className="space-y-10">
+              {steps.map((step, i) => (
+                <ScrollReveal key={i} delay={i * 0.1}>
+                  <div className="relative">
+                    {/* Dot on the line */}
+                    <div className="absolute -left-8 lg:-left-10 top-1.5 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-red-400 via-orange-400 to-purple-400 ring-4 ring-surface" />
+                    <h3 className="text-[16px] font-medium text-charcoal">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                      {step.description}
+                    </p>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>
