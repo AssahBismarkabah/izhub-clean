@@ -33,7 +33,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-6 mx-auto max-w-xl text-lg sm:text-xl leading-relaxed text-muted"
+            className="mt-6 mx-auto max-w-xl text-lg sm:text-xl leading-normal text-body"
           >
             Domestic, commercial and military cleaning. Fully insured,
             transparent pricing, and inspection-ready results every time.
@@ -87,7 +87,7 @@ export function Hero() {
               <p className="text-4xl lg:text-5xl font-normal text-charcoal">
                 {stat.value}
               </p>
-              <p className="mt-1 text-base text-muted">{stat.label}</p>
+              <p className="mt-1 text-base text-body">{stat.label}</p>
             </div>
           ))}
         </motion.div>

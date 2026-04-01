@@ -17,10 +17,11 @@ export function Footer() {
                 alt="IZHUB Cleaning Service"
                 width={140}
                 height={48}
-                className="h-12 w-auto brightness-0"
+                style={{ width: "auto" }}
+                className="h-12 brightness-0"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
+            <p className="mt-4 text-sm leading-normal text-muted">
               {SITE_TAGLINE}
             </p>
           </div>

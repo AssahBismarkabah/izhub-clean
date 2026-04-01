@@ -7,8 +7,8 @@ const trustItems = [
   "Fully insured",
   "Transparent pricing",
   "Reliable & punctual",
-  "Professional-grade equipment",
-  "Eco-friendly options",
+  "Professional equipment",
+  "Extras available (oven, carpet, fridge)",
 ];
 
 export function WhyChooseUs() {
@@ -52,12 +52,12 @@ export function WhyChooseUs() {
                 March-out cleaning{" "}
                 <span className="text-gradient font-medium">specialists</span>
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted">
+              <p className="mt-5 text-base leading-normal text-body">
                 We understand military accommodation inspections inside and out.
                 Our team knows exactly what inspectors look for and cleans to
                 that standard, so you pass first time without the stress.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-muted">
+              <p className="mt-4 text-base leading-normal text-body">
                 From cupboard interiors to commonly-inspected areas, we cover
                 every detail. Trusted by service families across Tidworth,
                 Bulford, and Larkhill.

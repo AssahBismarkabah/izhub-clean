@@ -14,7 +14,7 @@ export function CTABanner() {
               <span className="text-gradient font-medium">brand new?</span>
             </h2>
 
-            <p className="mt-5 text-base leading-relaxed text-muted">
+            <p className="mt-5 text-base leading-normal text-body">
               We serve Tidworth, Bulford, Larkhill, Amesbury, Ludgershall,
               Andover, and the wider Salisbury Plain area. Get your free,
               no-obligation quote and we'll respond within 2 hours.

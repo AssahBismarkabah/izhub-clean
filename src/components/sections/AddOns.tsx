@@ -4,11 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
 
 const addOns = [
-  { name: "Oven deep clean", description: "Grease, burnt-on residue, internal glass and shelves", price: "From £50" },
-  { name: "Carpet cleaning", description: "Per-room stain treatment and deodorising", price: "From £40/room" },
-  { name: "Fridge cleaning", description: "Internal shelves and compartment sanitation", price: "From £20" },
-  { name: "Freezer cleaning", description: "Full defrost and internal deep clean", price: "From £25" },
-  { name: "Fridge-freezer combo", description: "Both units, complete internal clean", price: "From £35" },
+  { name: "Oven deep clean", price: "From £50" },
+  { name: "Carpet cleaning", price: "From £40/room" },
+  { name: "Fridge cleaning", price: "From £20" },
+  { name: "Freezer cleaning", price: "From £25" },
+  { name: "Fridge-freezer combo", price: "From £35" },
 ];
 
 export function AddOns() {
@@ -23,39 +23,34 @@ export function AddOns() {
                 src="/cleaning-image.png"
                 alt="Professional oven cleaning"
                 width={600}
-                height={700}
-                className="object-cover w-full aspect-[4/5] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                height={500}
+                className="object-cover w-full aspect-[5/4] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
               />
             </div>
           </ScrollReveal>
 
-          {/* Menu-style list */}
+          {/* Content */}
           <ScrollReveal delay={0.1}>
             <p className="text-sm font-medium text-muted tracking-wide">
               Add-on services
             </p>
             <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
-              Enhance any clean with{" "}
-              <span className="text-gradient font-medium">extras</span>
+              Enhance any clean
+              <br />
+              with <span className="text-gradient font-medium">extras</span>
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
-              Available alongside any of our core services. Just add them when
-              you request your quote.
-            </p>
 
-            {/* Menu list */}
-            <div className="mt-8 divide-y divide-border">
-              {addOns.map((item) => (
-                <div key={item.name} className="flex items-baseline justify-between gap-4 py-4">
-                  <div className="min-w-0">
-                    <p className="text-base font-medium text-charcoal">
-                      {item.name}
-                    </p>
-                    <p className="mt-0.5 text-base text-muted">
-                      {item.description}
-                    </p>
-                  </div>
-                  <span className="text-base font-medium text-charcoal whitespace-nowrap">
+            {/* Clean price list */}
+            <div className="mt-8 rounded-2xl border border-border overflow-hidden">
+              {addOns.map((item, i) => (
+                <div
+                  key={item.name}
+                  className={`flex items-center justify-between px-5 py-4 ${
+                    i !== addOns.length - 1 ? "border-b border-border" : ""
+                  }`}
+                >
+                  <span className="text-base text-charcoal">{item.name}</span>
+                  <span className="text-base font-medium text-charcoal">
                     {item.price}
                   </span>
                 </div>
@@ -64,7 +59,7 @@ export function AddOns() {
 
             <Link
               href="/quote"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
             >
               Add to your quote
               <ArrowRight className="h-4 w-4" />

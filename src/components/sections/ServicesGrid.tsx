@@ -41,6 +41,7 @@ export function ServicesGrid() {
                     src={serviceImages[service.slug]}
                     alt={service.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   />
                   {service.startingPrice && (
@@ -55,7 +56,7 @@ export function ServicesGrid() {
                   <h3 className="text-lg font-medium text-charcoal">
                     {service.name}
                   </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted">
+                  <p className="mt-2 text-base leading-normal text-body">
                     {service.shortDescription}
                   </p>
                 </div>

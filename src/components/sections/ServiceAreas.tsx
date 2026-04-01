@@ -14,7 +14,7 @@ export function ServiceAreas() {
               Based in{" "}
               <span className="text-gradient font-medium">Tidworth</span>
             </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted">
+            <p className="mt-5 text-[15px] leading-normal text-muted">
               We provide professional cleaning services in Tidworth,
               Bulford, Larkhill, Amesbury, Ludgershall, Andover,
               and across the wider Salisbury Plain area.

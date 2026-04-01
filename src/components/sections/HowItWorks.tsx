@@ -34,7 +34,7 @@ export function HowItWorks() {
               Simple from start{" "}
               <span className="text-gradient font-medium">to spotless</span>
             </h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-base leading-normal text-body">
               No complicated booking process. No hidden fees. Just reliable
               cleaning in three straightforward steps.
             </p>
@@ -61,7 +61,7 @@ export function HowItWorks() {
                     <h3 className="text-lg font-medium text-charcoal">
                       {step.title}
                     </h3>
-                    <p className="mt-1.5 text-base leading-relaxed text-muted">
+                    <p className="mt-1.5 text-base leading-normal text-body">
                       {step.description}
                     </p>
                   </div>
