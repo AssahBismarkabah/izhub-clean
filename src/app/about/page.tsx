@@ -33,36 +33,50 @@ export default function AboutPage() {
       {/* Story */}
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <ScrollReveal>
-              <p className="text-sm font-medium text-muted tracking-wide">Our approach</p>
-              <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
-                Professional cleaning, clear communication,{" "}
-                <span className="text-gradient font-medium">dependable delivery</span>
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal>
-              <div className="mt-8 space-y-5 text-base text-body">
-                <p>
-                  IZHUB Cleaning Services serves tenants, landlords, letting agents,
-                  homeowners, businesses, and military families across Tidworth, Bulford,
-                  Larkhill, Amesbury, Andover, and the wider Salisbury Plain area.
-                </p>
-                <p>
-                  We focus on delivering cleaning that meets handover and inspection
-                  standards without unnecessary stress. Whether you need a regular
-                  domestic clean, a thorough end-of-tenancy turnaround, or a
-                  specialist march-out clean for military accommodation, we apply the
-                  same professional approach every time.
-                </p>
-                <p>
-                  Our team uses professional-grade equipment and products, works to a
-                  structured method, and communicates clearly at every step. No
-                  surprises, no shortcuts, just consistent results you can rely on.
-                </p>
+              <div className="group overflow-hidden rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+                <Image
+                  src="/domestic-izhubd2.png"
+                  alt="IZHUB team member with professional cleaning equipment"
+                  width={600}
+                  height={700}
+                  className="object-cover w-full aspect-[4/5] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
               </div>
             </ScrollReveal>
+
+            <div>
+              <ScrollReveal>
+                <p className="text-sm font-medium text-muted tracking-wide">Our approach</p>
+                <h2 className="mt-3 text-4xl sm:text-5xl font-normal text-charcoal">
+                  Professional cleaning, clear communication,{" "}
+                  <span className="text-gradient font-medium">dependable delivery</span>
+                </h2>
+              </ScrollReveal>
+
+              <ScrollReveal>
+                <div className="mt-8 space-y-5 text-base text-body">
+                  <p>
+                    IZHUB Cleaning Services serves tenants, landlords, letting agents,
+                    homeowners, businesses, and military families across Tidworth, Bulford,
+                    Larkhill, Amesbury, Andover, and the wider Salisbury Plain area.
+                  </p>
+                  <p>
+                    We focus on delivering cleaning that meets handover and inspection
+                    standards without unnecessary stress. Whether you need a regular
+                    domestic clean, a thorough end-of-tenancy turnaround, or a
+                    specialist march-out clean for military accommodation, we apply the
+                    same professional approach every time.
+                  </p>
+                  <p>
+                    Our team uses professional-grade equipment and products, works to a
+                    structured method, and communicates clearly at every step. No
+                    surprises, no shortcuts, just consistent results you can rely on.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>

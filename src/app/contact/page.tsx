@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/common/ScrollReveal";
@@ -82,9 +83,19 @@ export default function ContactPage() {
               </div>
             </ScrollReveal>
 
-            {/* Right: areas + quote CTA */}
+            {/* Right: team photo + areas + quote CTA */}
             <ScrollReveal delay={0.1}>
               <div className="space-y-10">
+                <div className="group overflow-hidden rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+                  <Image
+                    src="/domestic-izhubd2.png"
+                    alt="IZHUB team member ready to help"
+                    width={600}
+                    height={500}
+                    className="object-cover w-full aspect-[5/4] object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  />
+                </div>
+
                 <div>
                   <p className="text-sm font-medium text-muted tracking-wide">Areas we cover</p>
                   <p className="mt-3 text-base text-body">

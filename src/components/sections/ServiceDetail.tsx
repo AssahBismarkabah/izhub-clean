@@ -13,8 +13,8 @@ const galleryImages: Record<string, { src: string; alt: string }[]> = {
     { src: "/domestic-cleaning8.jpeg", alt: "Kitchen worktops and appliances" },
   ],
   "end-of-tenancy": [
+    { src: "/domestic-izhubd1.png", alt: "Professional cleaner preparing an empty property" },
     { src: "/Domestic-Cleaningd1.png", alt: "Clean living room ready for inspection" },
-    { src: "/domestic-cleaningd6.png", alt: "Clean hallway" },
     { src: "/domestic-cleaning9.jpeg", alt: "Clean bathroom" },
   ],
   "commercial-cleaning": [
