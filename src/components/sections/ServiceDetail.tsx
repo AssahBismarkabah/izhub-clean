@@ -8,14 +8,14 @@ import { notFound } from "next/navigation";
 
 const galleryImages: Record<string, { src: string; alt: string }[]> = {
   "domestic-cleaning": [
-    { src: "/Domestic-Cleaningd3.png", alt: "Clean kitchen after domestic clean" },
+    { src: "/Domestic-Cleaningd3.png", alt: "Clean kitchen" },
     { src: "/Domestic-Cleaningd4.png", alt: "Clean bedroom" },
-    { src: "/cleaning-image.png", alt: "Professional cleaning in action" },
+    { src: "/domestic-cleaning8.jpeg", alt: "Kitchen worktops and appliances" },
   ],
   "end-of-tenancy": [
     { src: "/Domestic-Cleaningd1.png", alt: "Clean living room ready for inspection" },
-    { src: "/Domestic-Cleaningd3.png", alt: "Clean kitchen" },
-    { src: "/Domestic-Cleaningd5.png", alt: "Clean bathroom sink" },
+    { src: "/domestic-cleaningd6.png", alt: "Clean hallway" },
+    { src: "/domestic-cleaning9.jpeg", alt: "Clean bathroom" },
   ],
   "commercial-cleaning": [
     { src: "/cleaning-image-office.png", alt: "Clean office workspace" },
@@ -24,7 +24,7 @@ const galleryImages: Record<string, { src: string; alt: string }[]> = {
   "military-cleaning": [
     { src: "/cleaning-image-home.png", alt: "Bedroom with hotel-quality finish" },
     { src: "/Domestic-Cleaningd1.png", alt: "Clean living room" },
-    { src: "/Domestic-Cleaningd5.png", alt: "Clean bathroom" },
+    { src: "/domestic-cleaing12.jpeg", alt: "Clean bathroom with attention to detail" },
   ],
 };
 
@@ -130,32 +130,28 @@ export function ServiceDetail({ slug }: { slug: string }) {
             </ScrollReveal>
 
             <ScrollReveal>
-              <div className="mt-8 max-w-xl rounded-2xl border border-border bg-white overflow-hidden">
+              <div className="mt-8 max-w-xl space-y-6">
                 {pricingData.type === "domestic" &&
-                  pricingData.data.map((row, i) => (
+                  pricingData.data.map((row) => (
                     <div
                       key={row.frequency}
-                      className={`flex items-center justify-between px-6 py-4 ${
-                        i !== pricingData.data.length - 1 ? "border-b border-border" : ""
-                      }`}
+                      className="flex items-baseline justify-between"
                     >
                       <div>
-                        <p className="text-base font-medium text-charcoal">{row.frequency}</p>
+                        <p className="text-lg font-medium text-charcoal">{row.frequency}</p>
                         <p className="text-sm text-muted">Min. {row.minimum}</p>
                       </div>
-                      <span className="text-base font-medium text-charcoal">{row.rate}</span>
+                      <span className="text-2xl font-normal text-charcoal">{row.rate}</span>
                     </div>
                   ))}
                 {pricingData.type === "endOfTenancy" &&
-                  pricingData.data.map((row, i) => (
+                  pricingData.data.map((row) => (
                     <div
                       key={row.bedrooms}
-                      className={`flex items-center justify-between px-6 py-4 ${
-                        i !== pricingData.data.length - 1 ? "border-b border-border" : ""
-                      }`}
+                      className="flex items-baseline justify-between"
                     >
-                      <span className="text-base text-charcoal">{row.bedrooms}</span>
-                      <span className="text-base font-medium text-charcoal">{row.price}</span>
+                      <span className="text-lg text-charcoal">{row.bedrooms}</span>
+                      <span className="text-2xl font-normal text-charcoal">{row.price}</span>
                     </div>
                   ))}
               </div>
