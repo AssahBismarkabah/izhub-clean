@@ -20,8 +20,8 @@ export function WhyChooseUs() {
             <div>
               <div className="group overflow-hidden rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] transition-shadow duration-300">
                 <Image
-                  src="/cleaning-image-home.png"
-                  alt="Hotel-quality finish on military accommodation"
+                  src="/Domestic-Cleaningd2.png"
+                  alt="Clean bedroom ready for inspection"
                   width={600}
                   height={500}
                   className="object-cover w-full aspect-[5/4] group-hover:scale-[1.03] transition-transform duration-500 ease-out"

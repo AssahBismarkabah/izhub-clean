@@ -49,15 +49,15 @@ export function HowItWorks() {
 
           {/* Right: simple text timeline */}
           <div className="relative pl-8 lg:pl-10">
-            {/* Vertical line */}
-            <div className="absolute left-0 top-2 bottom-2 w-px bg-border" />
+            {/* Vertical line through the dots */}
+            <div className="absolute left-[4px] lg:left-[4px] top-3 bottom-3 w-px bg-charcoal/15" />
 
             <div className="space-y-10">
               {steps.map((step, i) => (
                 <ScrollReveal key={i} delay={i * 0.1}>
                   <div className="relative">
                     {/* Dot on the line */}
-                    <div className="absolute -left-8 lg:-left-10 top-1.5 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-red-400 via-orange-400 to-purple-400 ring-4 ring-surface" />
+                    <div className="absolute -left-[27px] lg:-left-[35px] top-2 h-2 w-2 rounded-full bg-gradient-to-br from-red-400 via-orange-400 to-purple-400" />
                     <h3 className="text-lg font-medium text-charcoal">
                       {step.title}
                     </h3>
