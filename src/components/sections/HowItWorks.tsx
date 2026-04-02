@@ -50,7 +50,7 @@ export function HowItWorks() {
           {/* Right: simple text timeline */}
           <div className="relative pl-8 lg:pl-10">
             {/* Vertical line through the dots */}
-            <div className="absolute left-[4px] lg:left-[4px] top-3 bottom-3 w-px bg-charcoal/15" />
+            <div className="absolute left-[4px] lg:left-[4px] top-[6px] bottom-3 w-px bg-charcoal/15" />
 
             <div className="space-y-10">
               {steps.map((step, i) => (
