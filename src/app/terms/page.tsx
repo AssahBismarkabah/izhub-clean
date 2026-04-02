@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE_NAME, CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -10,6 +11,11 @@ export default function TermsPage() {
   return (
     <section className="bg-white pt-28 pb-16 lg:pt-36 lg:pb-24">
       <div className="mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
+        <div className="flex gap-4 text-sm text-muted mb-8">
+          <Link href="/privacy" className="hover:text-charcoal transition-colors">Privacy Policy</Link>
+          <span>&middot;</span>
+          <span className="text-charcoal font-medium">Terms &amp; Conditions</span>
+        </div>
         <h1 className="text-4xl font-normal text-charcoal">Terms &amp; Conditions</h1>
         <p className="mt-2 text-sm text-muted">Last updated: April 2026</p>
 
