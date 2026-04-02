@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { quoteFormSchema, type QuoteFormData } from "@/lib/validations";
 import { CONTACT } from "@/lib/constants";
 import { Select } from "@/components/ui/Select";
@@ -16,6 +16,9 @@ const inputClass =
 export function QuoteForm() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submittedData, setSubmittedData] = useState<QuoteFormData | null>(
+    null
+  );
 
   const {
     register,
@@ -53,31 +56,122 @@ export function QuoteForm() {
     } catch {
       // silent
     }
+    setSubmittedData(data);
     setSubmitted(true);
   };
 
-  if (submitted) {
+  if (submitted && submittedData) {
+    const firstName = submittedData.fullName.split(" ")[0];
+    const contactMethod =
+      submittedData.contactPreference || "your preferred method";
+
+    const summaryItems = [
+      submittedData.cleaningType && {
+        label: "Cleaning type",
+        value: submittedData.cleaningType,
+      },
+      submittedData.propertyType && {
+        label: "Property",
+        value: submittedData.propertyType,
+      },
+      submittedData.bedrooms && {
+        label: "Bedrooms",
+        value: submittedData.bedrooms,
+      },
+      submittedData.postcode && {
+        label: "Postcode",
+        value: submittedData.postcode,
+      },
+      submittedData.preferredDate && {
+        label: "Preferred date",
+        value: submittedData.preferredDate,
+      },
+      submittedData.additionalServices &&
+        submittedData.additionalServices.length > 0 && {
+          label: "Add-ons",
+          value: submittedData.additionalServices.join(", "),
+        },
+    ].filter(Boolean) as { label: string; value: string }[];
+
     return (
-      <div className="text-center py-12">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-green-50">
-          <Check className="h-7 w-7 text-green-600" />
-        </div>
-        <h2 className="mt-6 text-2xl font-normal text-charcoal">
-          Quote request submitted
+      <div>
+        <h2 className="text-3xl sm:text-4xl font-normal text-charcoal">
+          Request <span className="text-gradient font-medium">received</span>
         </h2>
-        <p className="mt-3 text-base text-body">
-          We will be in touch within 2 hours. For a faster response,
-          message us on{" "}
+        <p className="mt-4 text-base text-body">
+          Thank you, {firstName}. We have your details and will be in touch
+          shortly.
+        </p>
+
+        {/* What happens next */}
+        <div className="mt-10">
+          <p className="text-sm font-medium text-muted tracking-wide">
+            What happens next
+          </p>
+          <div className="mt-4 space-y-4">
+            <div className="flex gap-3">
+              <span className="text-sm font-medium text-charcoal shrink-0 w-5">
+                1.
+              </span>
+              <p className="text-base text-body">
+                We review your details and prepare a personalised quote
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-sm font-medium text-charcoal shrink-0 w-5">
+                2.
+              </span>
+              <p className="text-base text-body">
+                You will hear from us within 2 hours via {contactMethod}
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-sm font-medium text-charcoal shrink-0 w-5">
+                3.
+              </span>
+              <p className="text-base text-body">
+                Once confirmed, we schedule your clean at a time that suits you
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Request summary */}
+        {summaryItems.length > 0 && (
+          <div className="mt-10 border-t border-border pt-8">
+            <p className="text-sm font-medium text-muted tracking-wide">
+              Your request
+            </p>
+            <dl className="mt-4 space-y-3">
+              {summaryItems.map((item) => (
+                <div key={item.label} className="flex justify-between">
+                  <dt className="text-sm text-muted">{item.label}</dt>
+                  <dd className="text-sm text-charcoal font-medium text-right">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )}
+
+        {/* Actions */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-3">
+          <a
+            href="/services"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-black px-7 py-3.5 text-base font-medium text-white hover:bg-charcoal transition-colors"
+          >
+            Explore our services
+          </a>
           <a
             href={CONTACT.whatsappWithMessage}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium underline underline-offset-4"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-7 py-3.5 text-base font-medium text-charcoal hover:bg-surface transition-colors"
           >
-            WhatsApp
+            Message on WhatsApp
           </a>
-          .
-        </p>
+        </div>
       </div>
     );
   }
