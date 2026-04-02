@@ -1,13 +1,13 @@
 // Brand & Contact Information
 export const SITE_NAME = "IZHUB Cleaning Service";
 export const SITE_TAGLINE = "Connecting people with trusted local cleaners";
-export const SITE_DOMAIN = "cleaning.izhub.uk";
+export const SITE_DOMAIN = "izhubcleaning.uk";
 
 export const CONTACT = {
   phone: "0786-9165-458",
   phoneInternational: "+44 7869 165458",
   phoneTel: "tel:+447869165458",
-  email: "info@izhub.uk",
+  email: "info@izhubcleaning.uk",
   whatsapp: "https://wa.me/447869165458",
   whatsappWithMessage:
     "https://wa.me/447869165458?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services.",
