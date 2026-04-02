@@ -69,10 +69,8 @@ export async function POST(request: Request) {
     </div>
   `;
 
-  // Use onboarding@resend.dev until izhubcleaning.uk domain is verified in Resend
-  // Once verified, change to: 'IZHUB Cleaning <quotes@izhubcleaning.uk>'
   const { error } = await resend.emails.send({
-    from: "IZHUB Cleaning <onboarding@resend.dev>",
+    from: "IZHUB Cleaning <quotes@izhubcleaning.uk>",
     to: ["info@izhubcleaning.uk"],
     replyTo: email,
     subject: `Quote request from ${fullName} — ${cleaningType || "Cleaning"}`,

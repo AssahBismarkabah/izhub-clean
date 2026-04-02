@@ -78,7 +78,7 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4 border-t border-border pt-10"
         >
           {[
-            { value: "Local", label: "Tidworth & surrounds" },
+            { value: "Local", label: "Salisbury & surrounds" },
             { value: "2hr", label: "Quote response" },
             { value: "Insured", label: "Public liability" },
             { value: "5★", label: "Service standard" },
