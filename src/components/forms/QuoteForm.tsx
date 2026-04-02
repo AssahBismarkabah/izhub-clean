@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, ArrowLeft, Check } from "lucide-react";
 import { quoteFormSchema, type QuoteFormData } from "@/lib/validations";
 import { CONTACT } from "@/lib/constants";
+import { Select } from "@/components/ui/Select";
 
 const steps = ["About you", "Your property", "Preferences"];
+
+const inputClass =
+  "w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-surface/50 focus:outline-none focus:border-charcoal focus:bg-white transition-all";
 
 export function QuoteForm() {
   const [step, setStep] = useState(0);
@@ -16,6 +20,7 @@ export function QuoteForm() {
   const {
     register,
     handleSubmit,
+    control,
     trigger,
     formState: { errors },
   } = useForm<QuoteFormData>({
@@ -41,7 +46,7 @@ export function QuoteForm() {
         body: JSON.stringify(data),
       });
     } catch {
-      // silent - form shows success regardless for now
+      // silent
     }
     setSubmitted(true);
   };
@@ -58,9 +63,15 @@ export function QuoteForm() {
         <p className="mt-3 text-base text-body">
           We will be in touch within 2 hours. For a faster response,
           message us on{" "}
-          <a href={CONTACT.whatsappWithMessage} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-4">
+          <a
+            href={CONTACT.whatsappWithMessage}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline underline-offset-4"
+          >
             WhatsApp
-          </a>.
+          </a>
+          .
         </p>
       </div>
     );
@@ -80,7 +91,11 @@ export function QuoteForm() {
                     : "bg-border"
                 }`}
               />
-              <span className={`text-sm ${i === step ? "text-charcoal font-medium" : "text-muted"}`}>
+              <span
+                className={`text-sm ${
+                  i === step ? "text-charcoal font-medium" : "text-muted"
+                }`}
+              >
                 {label}
               </span>
             </div>
@@ -94,29 +109,75 @@ export function QuoteForm() {
         {step === 0 && (
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Full name *</label>
-              <input {...register("fullName")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors" placeholder="Your full name" />
-              {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName.message}</p>}
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Full name *
+              </label>
+              <input
+                {...register("fullName")}
+                className={inputClass}
+                placeholder="Your full name"
+              />
+              {errors.fullName && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.fullName.message}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Email *</label>
-              <input {...register("email")} type="email" className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors" placeholder="you@example.com" />
-              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Email *
+              </label>
+              <input
+                {...register("email")}
+                type="email"
+                className={inputClass}
+                placeholder="you@example.com"
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Phone / WhatsApp *</label>
-              <input {...register("phone")} type="tel" className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors" placeholder="07xxx xxx xxx" />
-              <p className="mt-1 text-sm text-muted">We usually respond via WhatsApp for speed</p>
-              {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>}
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Phone / WhatsApp *
+              </label>
+              <input
+                {...register("phone")}
+                type="tel"
+                className={inputClass}
+                placeholder="07xxx xxx xxx"
+              />
+              <p className="mt-1 text-sm text-muted">
+                We usually respond via WhatsApp for speed
+              </p>
+              {errors.phone && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.phone.message}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Are you a new customer?</label>
-              <div className="flex gap-4">
-                <label className="flex items-center gap-2 text-base text-body cursor-pointer">
-                  <input {...register("customerType")} type="radio" value="new" className="accent-charcoal" /> New customer
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Are you a new customer?
+              </label>
+              <div className="flex gap-6">
+                <label className="flex items-center gap-2.5 text-base text-body cursor-pointer">
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="new"
+                  />
+                  New customer
                 </label>
-                <label className="flex items-center gap-2 text-base text-body cursor-pointer">
-                  <input {...register("customerType")} type="radio" value="existing" className="accent-charcoal" /> Existing customer
+                <label className="flex items-center gap-2.5 text-base text-body cursor-pointer">
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="existing"
+                  />
+                  Existing customer
                 </label>
               </div>
             </div>
@@ -127,58 +188,124 @@ export function QuoteForm() {
         {step === 1 && (
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Property postcode *</label>
-              <input {...register("postcode")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors" placeholder="e.g. SP9 7DY" />
-              {errors.postcode && <p className="mt-1 text-sm text-red-500">{errors.postcode.message}</p>}
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Property postcode *
+              </label>
+              <input
+                {...register("postcode")}
+                className={inputClass}
+                placeholder="e.g. SP9 7DY"
+              />
+              {errors.postcode && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.postcode.message}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Property type</label>
-              <select {...register("propertyType")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors">
-                <option value="">Select</option>
-                <option>Flat / Apartment</option>
-                <option>House</option>
-                <option>Other</option>
-              </select>
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Property type
+              </label>
+              <Controller
+                control={control}
+                name="propertyType"
+                render={({ field }) => (
+                  <Select
+                    options={["Flat / Apartment", "House", "Other"]}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select property type"
+                  />
+                )}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Number of bedrooms</label>
-              <select {...register("bedrooms")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors">
-                <option value="">Select</option>
-                <option>Studio / 1-bed</option>
-                <option>2-bed</option>
-                <option>3-bed</option>
-                <option>4-bed</option>
-                <option>5+ bedrooms</option>
-              </select>
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Number of bedrooms
+              </label>
+              <Controller
+                control={control}
+                name="bedrooms"
+                render={({ field }) => (
+                  <Select
+                    options={[
+                      "Studio / 1-bed",
+                      "2-bed",
+                      "3-bed",
+                      "4-bed",
+                      "5+ bedrooms",
+                    ]}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select bedrooms"
+                  />
+                )}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Type of cleaning</label>
-              <select {...register("cleaningType")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors">
-                <option value="">Select</option>
-                <option>Domestic regular</option>
-                <option>Domestic one-off / deep clean</option>
-                <option>End-of-tenancy / move-out</option>
-                <option>March-out / inspection (military)</option>
-                <option>Commercial</option>
-              </select>
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Type of cleaning
+              </label>
+              <Controller
+                control={control}
+                name="cleaningType"
+                render={({ field }) => (
+                  <Select
+                    options={[
+                      "Domestic regular",
+                      "Domestic one-off / deep clean",
+                      "End-of-tenancy / move-out",
+                      "March-out / inspection (military)",
+                      "Commercial",
+                    ]}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select cleaning type"
+                  />
+                )}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Is the property empty?</label>
-              <select {...register("propertyEmpty")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors">
-                <option value="">Select</option>
-                <option>Yes, completely empty</option>
-                <option>Mostly empty</option>
-                <option>No</option>
-              </select>
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Is the property empty?
+              </label>
+              <Controller
+                control={control}
+                name="propertyEmpty"
+                render={({ field }) => (
+                  <Select
+                    options={[
+                      "Yes, completely empty",
+                      "Mostly empty",
+                      "No",
+                    ]}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select"
+                  />
+                )}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Overall condition</label>
-              <select {...register("propertyCondition")} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors">
-                <option value="">Select</option>
-                <option>Good condition</option>
-                <option>Average use</option>
-                <option>Heavy use / needs deep clean</option>
-              </select>
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Overall condition
+              </label>
+              <Controller
+                control={control}
+                name="propertyCondition"
+                render={({ field }) => (
+                  <Select
+                    options={[
+                      "Good condition",
+                      "Average use",
+                      "Heavy use / needs deep clean",
+                    ]}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select condition"
+                  />
+                )}
+              />
             </div>
           </div>
         )}
@@ -187,45 +314,97 @@ export function QuoteForm() {
         {step === 2 && (
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Additional services</label>
-              <div className="space-y-2">
-                {["Oven cleaning", "Carpet cleaning", "Fridge / freezer cleaning"].map((svc) => (
-                  <label key={svc} className="flex items-center gap-2 text-base text-body cursor-pointer">
-                    <input {...register("additionalServices")} type="checkbox" value={svc} className="accent-charcoal" />
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Additional services
+              </label>
+              <div className="space-y-3">
+                {[
+                  "Oven cleaning",
+                  "Carpet cleaning",
+                  "Fridge / freezer cleaning",
+                ].map((svc) => (
+                  <label
+                    key={svc}
+                    className="flex items-center gap-2.5 text-base text-body cursor-pointer"
+                  >
+                    <input
+                      {...register("additionalServices")}
+                      type="checkbox"
+                      value={svc}
+                    />
                     {svc}
                   </label>
                 ))}
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Preferred cleaning date</label>
-              <input {...register("preferredDate")} type="date" className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors" />
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Preferred cleaning date
+              </label>
+              <input
+                {...register("preferredDate")}
+                className={inputClass}
+                placeholder="e.g. 15 April 2026"
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Is this short notice (within 7 days)?</label>
-              <div className="flex gap-4">
-                <label className="flex items-center gap-2 text-base text-body cursor-pointer">
-                  <input {...register("shortNotice")} type="radio" value="yes" className="accent-charcoal" /> Yes
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Is this short notice (within 7 days)?
+              </label>
+              <div className="flex gap-6">
+                <label className="flex items-center gap-2.5 text-base text-body cursor-pointer">
+                  <input
+                    {...register("shortNotice")}
+                    type="radio"
+                    value="yes"
+                  />
+                  Yes
                 </label>
-                <label className="flex items-center gap-2 text-base text-body cursor-pointer">
-                  <input {...register("shortNotice")} type="radio" value="no" className="accent-charcoal" /> No
+                <label className="flex items-center gap-2.5 text-base text-body cursor-pointer">
+                  <input
+                    {...register("shortNotice")}
+                    type="radio"
+                    value="no"
+                  />
+                  No
                 </label>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">How should we contact you? *</label>
-              <div className="flex gap-4">
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                How should we contact you? *
+              </label>
+              <div className="flex gap-6">
                 {["WhatsApp", "Phone call", "Email"].map((method) => (
-                  <label key={method} className="flex items-center gap-2 text-base text-body cursor-pointer">
-                    <input {...register("contactPreference")} type="radio" value={method} className="accent-charcoal" /> {method}
+                  <label
+                    key={method}
+                    className="flex items-center gap-2.5 text-base text-body cursor-pointer"
+                  >
+                    <input
+                      {...register("contactPreference")}
+                      type="radio"
+                      value={method}
+                    />
+                    {method}
                   </label>
                 ))}
               </div>
-              {errors.contactPreference && <p className="mt-1 text-sm text-red-500">{errors.contactPreference.message}</p>}
+              {errors.contactPreference && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.contactPreference.message}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1.5">Anything else?</label>
-              <textarea {...register("notes")} rows={3} className="w-full rounded-xl border border-border px-4 py-3 text-base text-charcoal bg-white focus:outline-none focus:border-charcoal transition-colors resize-none" placeholder="Optional" />
+              <label className="block text-sm font-medium text-charcoal mb-1.5">
+                Anything else?
+              </label>
+              <textarea
+                {...register("notes")}
+                rows={3}
+                className={`${inputClass} resize-none`}
+                placeholder="Optional"
+              />
             </div>
           </div>
         )}
