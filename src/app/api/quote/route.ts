@@ -54,7 +54,10 @@ export async function POST(request: Request) {
 
   const html = `
     <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">
-      <div style="padding:32px 24px;border-bottom:2px solid #ECF1F4;">
+      <div style="padding:24px;background:#1a1a2e;">
+        <img src="https://izhubcleaning.uk/logo-white.png" alt="IZHUB Cleaning" height="32" style="height:32px;width:auto;" />
+      </div>
+      <div style="padding:24px 24px 16px;">
         <h1 style="margin:0;font-size:22px;font-weight:600;color:#1a1a2e;">New quote request</h1>
         <p style="margin:8px 0 0;font-size:14px;color:#8C8CA1;">From ${fullName} &middot; ${email}</p>
       </div>
