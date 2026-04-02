@@ -25,7 +25,12 @@ export function QuoteForm() {
     formState: { errors },
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
-    defaultValues: { additionalServices: [] },
+    defaultValues: {
+      additionalServices: [],
+      contactPreference: "",
+      customerType: undefined,
+      shortNotice: undefined,
+    },
   });
 
   const nextStep = async () => {
