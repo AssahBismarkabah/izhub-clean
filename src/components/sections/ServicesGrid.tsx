@@ -9,7 +9,7 @@ const serviceImages: Record<string, string> = {
   "domestic-cleaning": "/cleaning-image-d1.png",
   "end-of-tenancy": "/cleaning-image-d2.png",
   "commercial-cleaning": "/cleaning-image-office.png",
-  "military-cleaning": "/cleaning-image-bathroom.png",
+  "military-cleaning": "/cleaning-image-home.png",
 };
 
 export function ServicesGrid() {
