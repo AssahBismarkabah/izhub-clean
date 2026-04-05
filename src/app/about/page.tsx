@@ -7,7 +7,7 @@ import { ScrollReveal } from "@/components/common/ScrollReveal";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "IZHUB Cleaning Service is a local cleaning company serving Tidworth and the Salisbury Plain. Professional standards, clear communication, reliable delivery.",
+    "IZHUB Cleaning Service is a local cleaning company serving Salisbury and the Salisbury Plain. Professional standards, clear communication, reliable delivery.",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
               </h1>
               <p className="mt-4 text-lg text-body">
                 A local cleaning company providing domestic, commercial,
-                end-of-tenancy and march-out cleaning across Tidworth and surrounding areas.
+                end-of-tenancy and march-out cleaning across Salisbury and surrounding areas.
               </p>
             </div>
           </ScrollReveal>
@@ -41,6 +41,7 @@ export default function AboutPage() {
                   alt="IZHUB team member with professional cleaning equipment"
                   width={600}
                   height={700}
+                  priority
                   className="object-cover w-full aspect-[4/5] group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
               </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -7,7 +8,20 @@ import { CONTACT } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-surface pt-32 pb-20 lg:pt-44 lg:pb-32">
+    <section className="relative isolate overflow-hidden bg-surface pt-32 pb-20 lg:pt-44 lg:pb-32">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/cleaning-image-home.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          aria-hidden="true"
+          className="object-cover object-center opacity-30"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(236,241,244,0.55)_0%,rgba(236,241,244,0.7)_42%,rgba(236,241,244,0.92)_100%)]" />
+      </div>
+
       {/* Subtle radial glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-gradient-to-br from-red-100/30 via-orange-100/20 to-purple-100/30 blur-[100px]" />
@@ -35,8 +49,9 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mt-6 mx-auto max-w-xl text-lg sm:text-xl leading-normal text-body"
           >
-            Domestic, commercial and military cleaning. Fully insured,
-            transparent pricing, and inspection-ready results every time.
+            House cleaning, Office cleaning, End of tenancy and Airbnb
+            cleaning, fully insured, reliable and inspection-ready
+            results every time.
           </motion.p>
 
           <motion.div
@@ -78,8 +93,8 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4 border-t border-border pt-10"
         >
           {[
-            { value: "Local", label: "Salisbury & surrounds" },
-            { value: "2hr", label: "Quote response" },
+            { value: "Salisbury", label: "Surrounding areas" },
+            { value: "Flexible", label: "Scheduling" },
             { value: "Insured", label: "Public liability" },
             { value: "5★", label: "Service standard" },
           ].map((stat) => (
