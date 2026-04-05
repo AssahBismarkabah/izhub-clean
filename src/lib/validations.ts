@@ -12,6 +12,7 @@ export const quoteFormSchema = z.object({
   propertyType: z.string().optional(),
   bedrooms: z.string().optional(),
   cleaningType: z.string().optional(),
+  cleaningTypeOther: z.string().optional(),
   propertyEmpty: z.string().optional(),
   propertyCondition: z.string().optional(),
 

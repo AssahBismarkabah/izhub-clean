@@ -25,6 +25,7 @@ export function QuoteForm() {
     handleSubmit,
     control,
     trigger,
+    watch,
     formState: { errors },
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
@@ -68,7 +69,10 @@ export function QuoteForm() {
     const summaryItems = [
       submittedData.cleaningType && {
         label: "Cleaning type",
-        value: submittedData.cleaningType,
+        value:
+          submittedData.cleaningType === "Other" && submittedData.cleaningTypeOther
+            ? `Other: ${submittedData.cleaningTypeOther}`
+            : submittedData.cleaningType,
       },
       submittedData.propertyType && {
         label: "Property",
@@ -356,6 +360,8 @@ export function QuoteForm() {
                       "End-of-tenancy / move-out",
                       "March-out / inspection (military)",
                       "Commercial",
+                      "Airbnb / short let",
+                      "Other",
                     ]}
                     value={field.value}
                     onChange={field.onChange}
@@ -364,6 +370,18 @@ export function QuoteForm() {
                 )}
               />
             </div>
+            {watch("cleaningType") === "Other" && (
+              <div>
+                <label className="block text-sm font-medium text-charcoal mb-1.5">
+                  Please specify
+                </label>
+                <input
+                  {...register("cleaningTypeOther")}
+                  className={inputClass}
+                  placeholder="Describe the cleaning you need"
+                />
+              </div>
+            )}
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1.5">
                 Is the property empty?
