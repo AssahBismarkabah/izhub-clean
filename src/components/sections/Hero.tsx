@@ -11,15 +11,15 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-surface pt-32 pb-20 lg:pt-44 lg:pb-32">
       <div className="pointer-events-none absolute inset-0">
         <Image
-          src="/cleaning-image-home.png"
+          src="/izhub-Hero-2.png"
           alt=""
           fill
           priority
           sizes="100vw"
           aria-hidden="true"
-          className="object-cover object-center opacity-30"
+          className="object-cover object-top opacity-40"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(236,241,244,0.55)_0%,rgba(236,241,244,0.7)_42%,rgba(236,241,244,0.92)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(236,241,244,0.4)_0%,rgba(236,241,244,0.6)_42%,rgba(236,241,244,0.9)_100%)]" />
       </div>
 
       {/* Subtle radial glow */}
